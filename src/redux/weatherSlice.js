@@ -4,6 +4,7 @@ import requestWeather from "./request";
 
 const initialState = {
   weather: [],
+  query: "",
 };
 
 export const handleFetchWeather = createAsyncThunk(
@@ -21,12 +22,17 @@ export const handleFetchWeather = createAsyncThunk(
 const weatherSlice = createSlice({
   name: "weather",
   initialState,
-  reducers: {},
+  reducers: {
+    setQuery: (state, action) => {
+      state.query = action.payload;
+    },
+  },
   extraReducers: (buider) => {
     buider.addCase(handleFetchWeather.fulfilled, (state, action) => {
       state.weather = action.payload;
     });
   },
 });
+export const { setQuery } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

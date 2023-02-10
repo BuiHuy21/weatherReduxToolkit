@@ -1,28 +1,28 @@
+import { debounce } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Img from "../../asset/banner.webp";
 import useDebounce from "../../hooks/useDebounce";
-import { handleFetchWeather } from "../../redux/weatherSlice";
+import { handleFetchWeather, setQuery } from "../../redux/weatherSlice";
 import { formatAMPM } from "../../services/formatAMPM";
 
 const Left = () => {
   const ref = useRef();
-  const [search, setSearch] = useState("");
-  const query = useDebounce(search ? search : "Hà Nội", 1000);
-
   const dispatch = useDispatch();
   const weather = useSelector((state) => state);
+  const query = useSelector((state) => state.weathers.query);
+  const querySearch = query ? query : "Ha Noi";
   useEffect(() => {
-    dispatch(handleFetchWeather(query));
-  }, [dispatch, query]);
+    dispatch(handleFetchWeather(querySearch));
+  }, [dispatch, querySearch]);
 
   useEffect(() => {
     ref.current.focus();
   }, []);
 
-  const handleChang = (e) => {
-    setSearch(e.target.value);
-  };
+  const handleChang = debounce((e) => {
+    dispatch(setQuery(e.target.value));
+  }, 500);
   let weekday = [
     "Sunday",
     "Monday",
@@ -33,7 +33,6 @@ const Left = () => {
     "Saturday",
   ][new Date().getDay()];
 
-
   return (
     <div className="left">
       <div className="content">
@@ -42,7 +41,6 @@ const Left = () => {
             ref={ref}
             type="text"
             placeholder="Search"
-            value={search}
             onChange={(e) => handleChang(e)}
           />
         </div>
