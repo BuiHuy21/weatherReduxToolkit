@@ -28,7 +28,7 @@ const weatherSlice = createSlice({
     },
   },
   extraReducers: (buider) => {
-    buider.addCase(handleFetchWeather.fulfilled, (state, action) => {
+     buider.addCase(handleFetchWeather.fulfilled, (state, action) => {
       state.weather = action.payload;
     });
   },

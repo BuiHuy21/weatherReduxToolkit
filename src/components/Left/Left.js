@@ -1,8 +1,7 @@
 import { debounce } from "lodash";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Img from "../../asset/banner.webp";
-import useDebounce from "../../hooks/useDebounce";
 import { handleFetchWeather, setQuery } from "../../redux/weatherSlice";
 import { formatAMPM } from "../../services/formatAMPM";
 
