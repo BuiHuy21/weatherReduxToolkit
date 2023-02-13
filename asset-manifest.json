@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/weatherReduxToolkit/static/css/main.f582b365.css",
+    "main.js": "/weatherReduxToolkit/static/js/main.51d013e6.js",
+    "static/media/wind.png": "/weatherReduxToolkit/static/media/wind.7e8e0ca0dce2290c53e0.png",
+    "static/media/banner.webp": "/weatherReduxToolkit/static/media/banner.86a2e0e5d0339f02bcb3.webp",
+    "index.html": "/weatherReduxToolkit/index.html",
+    "main.f582b365.css.map": "/weatherReduxToolkit/static/css/main.f582b365.css.map",
+    "main.51d013e6.js.map": "/weatherReduxToolkit/static/js/main.51d013e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f582b365.css",
+    "static/js/main.51d013e6.js"
+  ]
+}
